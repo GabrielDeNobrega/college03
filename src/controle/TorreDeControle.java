@@ -53,9 +53,9 @@ public class TorreDeControle {
 	public int definirAeroporto(Aeroporto[] aeroportos, Scanner sc) {
 
 		System.out.println("****** Olá, Controlador(a)!");
-		System.out.println("****** Vamos definir as informações sobre o aeroporto.");
-
+		
 		System.out.println();
+		System.out.println("****** Vamos definir as informações sobre o aeroporto.");
 		System.out.println("****** Qual é o aeroporto em que você está?");
 		System.out.println();
 
