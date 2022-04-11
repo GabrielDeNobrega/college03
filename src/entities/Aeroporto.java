@@ -28,6 +28,14 @@ public class Aeroporto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public String getNomeAeroporto() {
+		return nomeAeroporto;
+	}
+
+	public void setNomeAeroporto(String nomeAeroporto) {
+		this.nomeAeroporto = nomeAeroporto;
+	}
 
 	public Integer getNumeroPistas() {
 		return numeroPistas;
@@ -60,7 +68,7 @@ public class Aeroporto {
 		airport[0] = new Aeroporto(101, "Guarulhos", 2, 3, 5);
 		airport[1] = new Aeroporto(102, "Congonhas", 1, 2, 4);
 		airport[2] = new Aeroporto(103, "Santos Dumont", 2, 2, 6);
-		airport[3] = new Aeroporto(104, "Rio Galeão", 3, 4, 3);
+		airport[3] = new Aeroporto(104, "Eduardo Gomes", 3, 4, 3);
 		airport[4] = new Aeroporto(105, "Viracopos", 1, 3, 5);
 		airport[5] = new Aeroporto(106, "Araraquara", 1, 2, 4);
 		airport[6] = new Aeroporto(107, "São Carlos", 2, 2, 6);
@@ -74,7 +82,7 @@ public class Aeroporto {
 	
 	@Override
 	public String toString() {
-		return "Id: " 
+		return "****** Id: " 
 				+ id 
 				+ " ---- Nome: " 
 				+ nomeAeroporto 

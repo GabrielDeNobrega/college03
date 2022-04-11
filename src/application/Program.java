@@ -1,23 +1,19 @@
 package application;
 
-import entities.Aeroporto;
+import java.util.Scanner;
+
+import controle.TorreDeControle;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
-		Aeroporto airport = new Aeroporto();
-		
-		Aeroporto[] aeroportos;
-		aeroportos  = airport.criaAeroportos();
-		
-		for (Aeroporto aeroporto : aeroportos) {
-			System.out.println(aeroporto);
-		}
-		
-		
+		Scanner sc = new Scanner(System.in);
+		TorreDeControle tower = new TorreDeControle();
 
-
+		tower.definirContexto(sc);
+		
+		sc.close();
 
 	}
 
