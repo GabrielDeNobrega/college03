@@ -39,11 +39,14 @@ public class TorreDeControle {
 
 		Aeroporto airport = new Aeroporto();
 		Trajeto routes = new Trajeto();
+		Radar radar = new Radar();
 
 		Aeroporto[] aeroportos = airport.criaAeroportos();
 		Trajeto[] trajetos = routes.criaTrajetos();
+		Radar[] radares = radar.criaCondicoesClimaticas();
 
 		int idAeroporto = definirAeroporto(aeroportos, sc);
+		int idCondicaoClimatica = definirCondicaoClimatica(radares, sc);
 
 	}
 
@@ -53,7 +56,7 @@ public class TorreDeControle {
 		System.out.println("****** Vamos definir as informações sobre o aeroporto.");
 
 		System.out.println();
-		System.out.println("****** Qual é o aeroporto em que você está ?");
+		System.out.println("****** Qual é o aeroporto em que você está?");
 		System.out.println();
 
 		for (int i = 0; i < aeroportos.length; i++) {
@@ -76,6 +79,35 @@ public class TorreDeControle {
 
 		System.out.println("****** O aeroporto em que você está possui as seguintes características: ");
 		System.out.println(aeroportos[escolha]);
+
+		return escolha;
+
+	}
+	
+	public int definirCondicaoClimatica(Radar[] radar, Scanner sc) {
+
+		System.out.println();
+		System.out.println("****** Agora vamos definir as informações sobre o clima.");
+		System.out.println("****** Como está o clima hoje?");
+		System.out.println();
+
+		for (int i = 0; i < radar.length; i++) {
+
+			if (i < 9) {
+				System.out.println("[0" + (i + 1) + "] - " + radar[i].getCondicaoClimatica());
+			} else {
+				System.out.println("[" + (i + 1) + "] - " + radar[i].getCondicaoClimatica());
+			}
+
+		}
+		
+		System.out.println();
+		System.out.print("****** Digite sua escolha: ");
+		int escolha = sc.nextInt();
+		escolha -= 1;
+		
+		System.out.println("****** Opção Escolhida => Clima [" + radar[escolha].getCondicaoClimatica() + "]");
+		System.out.println();
 
 		return escolha;
 
