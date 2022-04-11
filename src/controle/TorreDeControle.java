@@ -1,5 +1,7 @@
 package controle;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import entities.Aeroporto;
@@ -50,10 +52,19 @@ public class TorreDeControle {
 
 	}
 
+	public String imprimirDataAtual() {
+
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy ---- HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		return dtf.format(now);
+
+	}
+
 	public int definirAeroporto(Aeroporto[] aeroportos, Scanner sc) {
 
+		System.out.println("****** " + imprimirDataAtual());
 		System.out.println("****** Olá, Controlador(a)!");
-		
+
 		System.out.println();
 		System.out.println("****** Vamos definir as informações sobre o aeroporto.");
 		System.out.println("****** Qual é o aeroporto em que você está?");
@@ -68,12 +79,12 @@ public class TorreDeControle {
 			}
 
 		}
-		
+
 		System.out.println();
 		System.out.print("****** Digite sua escolha: ");
 		int escolha = sc.nextInt();
 		escolha -= 1;
-		
+
 		System.out.println("****** Opção Escolhida => Aeroporto de ID [" + aeroportos[escolha].getId() + "]");
 		System.out.println();
 
@@ -83,7 +94,7 @@ public class TorreDeControle {
 		return escolha;
 
 	}
-	
+
 	public int definirCondicaoClimatica(Radar[] radar, Scanner sc) {
 
 		System.out.println();
@@ -100,12 +111,12 @@ public class TorreDeControle {
 			}
 
 		}
-		
+
 		System.out.println();
 		System.out.print("****** Digite sua escolha: ");
 		int escolha = sc.nextInt();
 		escolha -= 1;
-		
+
 		System.out.println("****** Opção Escolhida => Clima [" + radar[escolha].getCondicaoClimatica() + "]");
 		System.out.println();
 
