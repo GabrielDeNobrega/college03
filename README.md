@@ -1,14 +1,6 @@
 <h1 align="center">
   ✈️ Object Oriented Programming - Final Test ✈️
 </h1>
-
-<h1 align="center">
-  🗺️ Description 🗺️
-</h1>
-  
-<h3>
-  Repository created in order to store the program we have to develop as the final test of a college subject.
-</h3>
   
 <p align="center" width="100%">
   
@@ -16,6 +8,14 @@
   <img width="800" align="center" src="https://c.tenor.com/A9NhMybRH9YAAAAd/airplane-aircraft.gif"/>
 
 </p>
+
+<h1 align="center">
+  🌳 Description 🌳
+</h1>
+  
+<h3>
+  Repository created in order to store the program we have to develop as the final test of a college subject.
+</h3>
 
 <h1 align="center">
   💡 Exercise 💡
