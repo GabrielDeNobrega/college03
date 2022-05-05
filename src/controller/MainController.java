@@ -15,6 +15,7 @@ import model.entities.Runway;
 import model.entities.Smaller;
 import model.entities.Terminal;
 import model.enums.CapacityStatus;
+import model.enums.WeatherCondition;
 
 public class MainController {
 
@@ -24,10 +25,25 @@ public class MainController {
 	List<Runway> runways = new ArrayList<>();
 	List<Hangar> hangars = new ArrayList<>();
 
-	public void createAirports() {
+	public List<Airport> createAirports() {
 		airports.add(new Airport(0001, "Guarulhos", 10, CapacityStatus.EMPTY,
-				new ControlTower(0001, new Radar(0001, null), createOperators()), null, createTerminals(),
-				createRunways(), null));
+				new ControlTower(0001, new Radar(0001, WeatherCondition.RAINY), createOperators()), null,
+				createTerminals(), createRunways(), createHangars()));
+		airports.add(new Airport(0002, "Congonhas", 5, CapacityStatus.EMPTY,
+				new ControlTower(0002, new Radar(0002, WeatherCondition.CLEAR), createOperators()), null,
+				createTerminals(), createRunways(), createHangars()));
+		airports.add(new Airport(0003, "Viracopos", 12, CapacityStatus.EMPTY,
+				new ControlTower(0003, new Radar(0003, WeatherCondition.FOGGY), createOperators()), null,
+				createTerminals(), createRunways(), createHangars()));
+		airports.add(new Airport(0004, "Santos Dumont", 6, CapacityStatus.EMPTY,
+				new ControlTower(0004, new Radar(0004, WeatherCondition.CLEAR), createOperators()), null,
+				createTerminals(), createRunways(), createHangars()));
+		airports.add(new Airport(0005, "Galeão", 3, CapacityStatus.EMPTY,
+				new ControlTower(0005, new Radar(0005, WeatherCondition.CLEAR), createOperators()), null,
+				createTerminals(), createRunways(), createHangars()));
+
+		return airports;
+
 	}
 
 	public List<Operator> createOperators() {
@@ -59,6 +75,7 @@ public class MainController {
 
 	public List<Hangar> createHangars() {
 
+		hangars.add(new MaintenanceHangar());
 		hangars.add(new MaintenanceHangar());
 		hangars.add(new ParkingHangar());
 

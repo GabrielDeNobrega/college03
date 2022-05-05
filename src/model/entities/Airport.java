@@ -94,4 +94,11 @@ public class Airport {
 		return hangars;
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+	
+	
+
 }
