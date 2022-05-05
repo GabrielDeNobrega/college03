@@ -12,6 +12,8 @@ public class Airport {
 	private Integer maxCapacity;
 	private CapacityStatus currentCapacity;
 
+	private ControlTower controlTower;
+
 	List<Airship> airships = new ArrayList<>();
 	List<Terminal> terminals = new ArrayList<>();
 	List<Runway> runways = new ArrayList<>();
@@ -21,12 +23,15 @@ public class Airport {
 
 	}
 
-	public Airport(Integer id, String name, Integer maxCapacity, CapacityStatus currentCapacity, List<Airship> airships,
-			List<Terminal> terminals, List<Runway> runways, List<Hangar> hangars) {
+	public Airport(Integer id, String name, Integer maxCapacity, CapacityStatus currentCapacity,
+			ControlTower controlTower, List<Airship> airships, List<Terminal> terminals, List<Runway> runways,
+			List<Hangar> hangars) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.maxCapacity = maxCapacity;
 		this.currentCapacity = currentCapacity;
+		this.controlTower = controlTower;
 		this.airships = airships;
 		this.terminals = terminals;
 		this.runways = runways;
@@ -63,6 +68,14 @@ public class Airport {
 
 	public void setCurrentCapacity(CapacityStatus currentCapacity) {
 		this.currentCapacity = currentCapacity;
+	}
+
+	public ControlTower getControlTower() {
+		return controlTower;
+	}
+
+	public void setControlTower(ControlTower controlTower) {
+		this.controlTower = controlTower;
 	}
 
 	public List<Airship> getAirships() {

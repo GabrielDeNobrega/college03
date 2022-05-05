@@ -2,8 +2,8 @@ package model.entities;
 
 public class Bigger extends Runway {
 
-	public Bigger() {
-
+	public Bigger(Integer id, Double length) {
+		super(id, length);
 	}
 
 }
