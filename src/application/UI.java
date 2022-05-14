@@ -1,5 +1,7 @@
 package application;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,6 +11,9 @@ import model.entities.Airport;
 import model.entities.Operator;
 
 public class UI {
+	
+	final static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	
 
 	public static void welcome() {
 		System.out.println("*** Bem-Vindo Operador ***");
@@ -96,6 +101,21 @@ public class UI {
 	public static void printChosenOperator(Operator chosenOperator) {
 
 		System.out.println("Operador(a) Selecionado: " + chosenOperator);
+
+	}
+
+	public static void printCurrentSituation(Airport airport) {
+		
+		LocalDate today = LocalDate.now();
+		
+		System.out.println();
+		System.out.println("*** Situação Atual do Aeroporto ***");
+		System.out.println();
+		String weather = airport.getControlTower().getRadar().getCurrentWeather().toString();
+		System.out.println("Clima Atual: " + weather);
+		String ocupation = airport.getCurrentCapacity().toString();
+		System.out.println("Ocupação Atual: " + ocupation);
+		System.out.println("Data Atual: " + dtf.format(today));
 
 	}
 

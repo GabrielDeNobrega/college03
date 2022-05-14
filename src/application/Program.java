@@ -36,6 +36,8 @@ public class Program {
 			}
 
 			UI.printChosenOperator(chosenOperator);
+			
+			UI.printCurrentSituation(chosenAirport);
 
 		} catch (InputMismatchException e) {
 			e.getMessage();
