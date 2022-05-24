@@ -8,12 +8,13 @@ import java.util.Scanner;
 
 import controller.MainController;
 import model.entities.Airport;
+import model.entities.FixedWing;
+import model.entities.Flight;
 import model.entities.Operator;
 
 public class UI {
-	
+
 	final static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-	
 
 	public static void welcome() {
 		System.out.println("*** Bem-Vindo Operador ***");
@@ -105,9 +106,9 @@ public class UI {
 	}
 
 	public static void printCurrentSituation(Airport airport) {
-		
+
 		LocalDate today = LocalDate.now();
-		
+
 		System.out.println();
 		System.out.println("*** Situação Atual do Aeroporto ***");
 		System.out.println();
@@ -116,6 +117,35 @@ public class UI {
 		String ocupation = airport.getCurrentCapacity().toString();
 		System.out.println("Ocupação Atual: " + ocupation);
 		System.out.println("Data Atual: " + dtf.format(today));
+
+	}
+
+	public static void firstLandingRequest(Operator operator) {
+
+		System.out.println();
+		System.out.println("Ok, " + operator.getName() + ", há um piloto solicitando pouso!");
+		System.out.println("Vamos ajudá-lo.");
+
+	}
+
+	public static void printLandingPlane(Airport chosenAirport) {
+
+		MainController control = new MainController();
+
+		List<Flight> flights = control.createFlights(chosenAirport);
+
+		System.out.println();
+		System.out.println("*** Voo Solicitando Pouso ***");
+		System.out.println("Id: " + flights.get(0).getId());
+		System.out.println("Status: " + flights.get(0).getFlightStatus());
+		System.out.println("Route: " + flights.get(0).getRoute().getOrigin() + " ----> "
+				+ flights.get(0).getRoute().getDestination());
+
+		if (flights.get(0).getAirship() instanceof FixedWing) {
+			System.out.println("Aeronave: Asa Fixa");
+		} else {
+			System.out.println("Aeronave: Helicóptero");
+		}
 
 	}
 

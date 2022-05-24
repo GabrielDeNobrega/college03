@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.entities.Airport;
+import model.entities.Airship;
 import model.entities.Bigger;
 import model.entities.ControlTower;
+import model.entities.FixedWing;
+import model.entities.Flight;
 import model.entities.Hangar;
 import model.entities.MaintenanceHangar;
 import model.entities.Operator;
 import model.entities.ParkingHangar;
 import model.entities.Radar;
+import model.entities.Route;
 import model.entities.Runway;
 import model.entities.Smaller;
 import model.entities.Terminal;
 import model.enums.CapacityStatus;
+import model.enums.FlightStatus;
 import model.enums.WeatherCondition;
 
 public class MainController {
@@ -24,6 +29,9 @@ public class MainController {
 	List<Terminal> terminals = new ArrayList<>();
 	List<Runway> runways = new ArrayList<>();
 	List<Hangar> hangars = new ArrayList<>();
+	List<Airship> airships = new ArrayList<>();
+	List<Flight> flights = new ArrayList<>();
+	List<Route> routes = new ArrayList<>();
 
 	public List<Airport> createAirports() {
 		airports.add(new Airport(0001, "Guarulhos", 10, CapacityStatus.EMPTY,
@@ -80,6 +88,31 @@ public class MainController {
 		hangars.add(new ParkingHangar());
 
 		return hangars;
+	}
+
+	public List<Airship> createAirships() {
+
+		airships.add(new FixedWing(0001, "Wilson", 800.00, 679.00, 0001, 210, "Zenaro"));
+
+		return airships;
+	}
+
+	public List<Route> createRoutes(Airport chosenAirport) {
+
+		List<Airport> airports = createAirports();
+		routes.add(new Route(0001, airports.get(3), chosenAirport));
+
+		return routes;
+	}
+
+	public List<Flight> createFlights(Airport chosenAirport) {
+
+		List<Route> routes = createRoutes(chosenAirport);
+		List<Airship> airships = createAirships();
+
+		flights.add(new Flight(0001, FlightStatus.FLYING, routes.get(0), airships.get(0)));
+
+		return flights;
 	}
 
 }
