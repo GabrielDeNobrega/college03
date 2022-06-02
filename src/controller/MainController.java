@@ -100,7 +100,7 @@ public class MainController {
 	public List<Route> createRoutes(Airport chosenAirport) {
 
 		List<Airport> airports = createAirports();
-		routes.add(new Route(0001, airports.get(3), chosenAirport));
+		routes.add(new Route(0001, airports.get(2), chosenAirport));
 
 		return routes;
 	}

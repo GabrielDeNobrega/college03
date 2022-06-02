@@ -8,9 +8,12 @@ import java.util.Scanner;
 
 import controller.MainController;
 import model.entities.Airport;
+import model.entities.Bigger;
 import model.entities.FixedWing;
 import model.entities.Flight;
 import model.entities.Operator;
+import model.enums.CapacityStatus;
+import model.enums.WeatherCondition;
 
 public class UI {
 
@@ -146,6 +149,33 @@ public class UI {
 		} else {
 			System.out.println("Aeronave: Helicóptero");
 		}
+
+	}
+
+	public static void printLandingInstructions(Airport chosenAirport) {
+
+		MainController control = new MainController();
+
+		System.out.println();
+		System.out.println("*** Instruções de Pouso ***");
+
+		WeatherCondition weather = chosenAirport.getControlTower().getRadar().getCurrentWeather();
+
+		if (weather == WeatherCondition.CLEAR) {
+
+			System.out.println("Pouse na Pista: " + chosenAirport.getRunways().get(1));
+
+		} else if (weather == WeatherCondition.FOGGY) {
+
+			System.out.println("Pouse na Pista: " + chosenAirport.getRunways().get(0));
+
+		} else {
+
+			System.out.println("Pouse na Pista: " + chosenAirport.getRunways().get(0));
+
+		}
+
+		chosenAirport.setCurrentCapacity(CapacityStatus.HAS_SPACE);
 
 	}
 

@@ -6,4 +6,9 @@ public class Bigger extends Runway {
 		super(id, length);
 	}
 
+	@Override
+	public String toString() {
+		return "BIGGER";
+	}
+
 }
